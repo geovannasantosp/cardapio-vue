@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title> Mc King Whopper Feliz </title>
 
     <!-- VUE -->
@@ -41,7 +42,7 @@
                             <img :src="ketchup">
                             <img :src="mostarda">
                             <img :src="maionese">
-                            <img :src="hamburger">
+                            <img :src="hamburguer">
                             <img :src="pao[1]">
 
                         </div> <!-- col -->
@@ -161,8 +162,7 @@
 
                 <!-- carne -->
                 <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" value="bovino"
-                        v-model="inputHamburguer">
+                    <input type="radio" class="form-check-input" value="bovino" v-model="inputHamburguer">
 
                     <label class="form-check-label"> Bovino </label>
                 </div>
@@ -189,7 +189,110 @@
         </div>
     </div>
 </div> <!-- Fim Tipos Hamburguer -->
-          
+        
+    <!-- Fazer Pedido -->
+          <div class="row mt-2">
+
+            <!--     button    Fazer pedido    -->
+            <div class="col d-flex justify-content-end">
+
+                <button type="button" class="btn btn-primary" @click="fazerPedido()">
+                    Fazer o Pedido
+                </button>
+
+            </div>
+        </div>
+
+    </div> <!-- Fim col md -->
+
+    <div class="col-md-6" v-if="etapa == 2">
+        <div class="row mt-2">
+            <div class="col">
+                <div class="card">
+
+                     <!-- Titulo Informe seus dados -->
+                     <div class="card-header">
+                        Informe Seus Dados
+                    </div>
+
+                    <!-- card-body Informe seus dados -->
+                    <div class="card-body">
+
+                        <!-- nome -->
+                        <div class="mb-3">
+                            <label class="form-label"> Nome </label>
+                            <input type="text" class="form-control" v-model="inputNome">
+                        </div>
+
+                        <!-- mesa -->
+                        <div class="mb-3">
+                            <label class="form-label"> Mesa </label>
+                            <input type="text" class="form-control" v-model="inputMesa">
+                        </div>
+
+                    </div>
+
+                </div> <!--  FIM card -->
+            </div> <!-- col -->
+        </div> <!-- row mt 2 -->
+
+        <div class="row mt-2">
+            <div class="col d-flex justify-content-between">
+
+                <!-- Voltar para o Lanche  -->
+                <button type="button" class="btn btn-warning" @click="etapa -= 1">
+                    Editar o Lanche
+                </button>
+                <button type="button" class="btn btn-success" @click="confirmarPedido()">
+                    Confirmar
+                </button>
+
+            </div>
+        </div>
+    </div> <!-- fim col md 6 -->
+
+
+    <div class="col-md-6" v-if="etapa == 3">
+        <!-- Pedido Confirmado -->
+        <div class="row mt-2">
+            <div class="col">
+                <div class="card">
+
+                    <!--  PEDIDO CONFIRMADO -->
+                    <div class="card-header">
+                        Pedido Confirmado
+                    </div>
+
+                    <!-- Mensagem -->
+                    <div class="card-body">
+                        <p> Agora é só aguardar ... </p>
+                        <p> Vamos levar o pedido até você. </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Repetir pedido -->
+        <div class="row mt-2">
+            <div class="col d-flex justify-content-between">
+
+                <!-- button Repetir Pedido -->
+                <button type="button" class="btn btn-primary" @click="etapa = 1">
+                    Repetir Pedido
+                </button>
+
+                <button type="button" class="btn btn-success" @click="novoPedido()">
+                    Novo Pedido
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div> <!-- fim ROW -->
+</div> <!-- FIM APP -->
+</div> <!-- FIM container -->
+
+
 
     <!-- instancia VUE -->
     <script>
@@ -264,6 +367,8 @@
                 },
 
             },
+
+           
 
                 
 
