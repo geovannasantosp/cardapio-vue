@@ -1,2 +1,2 @@
 # cardapio-vue
-Projeto cardápio Toten Afeus JavaScript com Vue.js
+Projeto cardápio Toten Afesu JavaScript com Vue.js
